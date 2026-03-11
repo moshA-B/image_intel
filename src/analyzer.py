@@ -26,7 +26,8 @@ def images_with_datetime(list_of_images):
 
 # טווח
 def date_range(list_of_images):
-    sorted_list = sorted(list_of_images, key=lambda x: x["datetime"])
+    new_list=[img for img in list_of_images if img["datetime"]]
+    sorted_list = sorted(new_list, key=lambda x: x["datetime"])
     return {"start": sorted_list[0]["datetime"], "end": sorted_list[-1]["datetime"]}
 
 
@@ -62,7 +63,7 @@ def detect_camera_switches(list_of_images):
 
 # יוצר מילון של {שם : (מיקום_א, מיקום_ר)}
 def image_location(list_of_images):
-    name_with_location = {img["filename"]: (float(img["latitude"]), float(img["longitude"])) for img in list_of_images}
+    name_with_location = {img["filename"]: (float(img["latitude"]), float(img["longitude"])) for img in list_of_images if img["latitude"] and img["longitude"]}
     return name_with_location
 
 
@@ -124,7 +125,8 @@ def get_city_name(location_list: list):
 
 # פונקציה שמוציאה רשימה של פערי זמו >12 שעות
 def time_gap(list_of_images):
-    s_list = sorted(list_of_images, key=lambda x: x["datetime"])
+    new_list=[img for img in list_of_images if img["datetime"]]
+    s_list = sorted(new_list, key=lambda x: x["datetime"])
     gap_list = []
     fmt = '%Y:%m:%d %H:%M:%S'
     for i in range(len(s_list) - 1):
@@ -133,7 +135,7 @@ def time_gap(list_of_images):
         t2 = datetime.strptime(s_list[i + 1]["datetime"], fmt)
         gap = abs(t1 - t2)
         if gap >= threshold:
-            gap_list.append(f"the gap between {s_list[i]["filename"]} and {s_list[i + 1]["filename"]} is {gap}")
+            gap_list.append(f"the gap between {s_list[i]["filename"]} and {s_list[i + 1]["filename"]} is {gap} hours")
     return gap_list
 
 

@@ -16,15 +16,15 @@ def sort_by_time(arr):
 # פונקציה ליצירת מפה
 def create_map(images_data):
     try:
-        gps_images = [img for img in images_data if img["has_gps"]]
+        gps_images = [img for img in images_data if img["latitude"] and img["longitude"]]
     except KeyError:
         return None
     if not gps_images: # לכאורה אם הרשימה ריקה אז שורה 19 לא תעבוד ולכן זוג A הוסיף שם try ןexcept
         return "<h2>No GPS data found</h2>"
 
     # מתחיל את המפה באמצע
-    center_lat = sum(img["latitude"] for img in gps_images) / len(gps_images)
-    center_lon = sum(img["longitude"] for img in gps_images) / len(gps_images)
+    center_lat = sum(img["latitude"] for img in gps_images if img["latitude"]) / len(gps_images)
+    center_lon = sum(img["longitude"] for img in gps_images if img["longitude"]) / len(gps_images)
 
     # יוצר איבר מפה
     m = folium.Map(

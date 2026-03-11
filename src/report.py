@@ -73,7 +73,7 @@ def create_report(images_data, map_html, timeline_html, analysis):
         </div>
 
         <div style="text-align:center; color:#888; margin-top:30px;">
-            Image Intel | האקתון 2025
+            Image Intel | made by yair, avi, eli, moshe 
         </div>
     </body>
     </html>
