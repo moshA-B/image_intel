@@ -195,6 +195,3 @@ def total_analyzer(list_of_dicts):
 
     return final_dict
 
-a = extract_all(r"C:\Users\user\Desktop\image_intel\images\ready")
-
-print(total_analyzer(a))
