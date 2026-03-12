@@ -59,11 +59,12 @@ def create_map(images_data):
                     <b>FILE:</b> {img['filename']}<br>
                     <b>DATE:</b> {img['datetime']}<br>
                     <b>MAKE:</b> {img["camera_make"]}<br>
-                    <b>MODEL:</b> {img['camera_model']}
+                    <b>MODEL:</b> {img['camera_model']}<br>
+                    <b>LOCATION:</b> {float(img["latitude"])}°, {float(img["longitude"])}°
                 </div>
                 """
         # מגדיר גודל לפופאפ
-        iframe = folium.IFrame(html_content, width=190, height=120)
+        iframe = folium.IFrame(html_content, width=190, height=150)
         # בונה את הפופאפ בפועל
         popup = folium.Popup(iframe, max_width=200)
         # בונה את הנקודת ציון
