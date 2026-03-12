@@ -85,13 +85,15 @@
             background-color: var(--accent-color);
             color: #0f172a;
             border: none;
-            padding: 15px 30px;
-            font-size: 1.2em;
+            height: 55px;
+            padding: 0 30px;
+            font-size: 1.1em;
             font-weight: bold;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
             width: 100%;
+            box-sizing: border-box;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -111,10 +113,10 @@
     <div style="text-align: right; padding: 20px;">
         <label style="color: white; font-size: 1.2em;">הדבק כאן את נתיב התיקייה:</label><br><br>
 
-        <input type="text"
-               name="folder_path"
-               placeholder="C:/images/folder_name"
-               style="width: 100%; padding: 15px; font-size: 1.1em; border-radius: 5px;">
+<input type="text"
+       name="folder_path"
+       placeholder="C:/images/folder_name"
+       style="width: 100%; height: 55px; padding: 0 15px; font-size: 1.1em; border-radius: 5px; box-sizing: border-box; border: 1px solid var(--border-color);">
 
         <br><br>
         <button type="submit" class="submit-btn">התחל ניתוח</button>
