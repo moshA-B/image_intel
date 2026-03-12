@@ -3,7 +3,6 @@ from geopy.geocoders import Nominatim
 from datetime import datetime, timedelta
 from geopy.exc import GeocoderServiceError, GeocoderTimedOut
 
-from src.extractor import extract_all
 
 
 # סך תמונות
@@ -36,9 +35,10 @@ def unique_cameras(list_of_images):
     unique_list = []
     final_list = []
     for i in list_of_images:
-        if i["camera_model"] not in unique_list:
-            unique_list.append(i["camera_model"])
-            final_list.append(f"{i["camera_make"]} {i["camera_model"]}")
+        if i["camera_model"]:
+            if i["camera_model"] not in unique_list:
+                unique_list.append(i["camera_model"])
+                final_list.append(f"{i["camera_make"]} {i["camera_model"]}")
     return final_list
 
 
@@ -159,7 +159,7 @@ def total_analyzer(list_of_dicts):
             from1 = i["from"]
             to = i["to"]
             c_date = f"{date[8:10]}/{date[5:7]}"
-            msg1 = f" agent switched from {from1} to {to} on {date}"
+            msg1 = f" agent switched from {from1} to {to} on {c_date}"
             tamp_list.append(msg1)
         for sen in tamp_list:
             final_dict["insights"].append(f"{sen}")
