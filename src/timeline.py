@@ -7,8 +7,7 @@ def create_timeline(images_data):
     dated_images.sort(key=lambda x: x["datetime"])
 
     html = '<div style="position:relative; padding:20px;">'
-    html += '<div style="position:absolute; left:50%; width:2px; height:100%; background:#333;"></div>'
-
+    html += '<div style="position:absolute; left:50%; width:2px; height:95%; background:#333;"></div>'
     pin_color = ['blue', 'orange', 'green', 'purple', 'pink', 'brown', 'cadetblue',
                  'black', 'red']
     color_dict = {}
@@ -28,9 +27,11 @@ def create_timeline(images_data):
         sides = {0: "right", 1 : "left"}
         if not date_only == date_for_check: num += 1
         html += f'''
-        <div style="margin:20px 0; text-align:{sides[num % 2]}; color: {text_color};">
+        <div style="margin:20px 0; text-align:{sides[num % 2]}; color: {text_color}; position: relative;">
             <strong>{img["datetime"]}</strong><br>
-            {img["filename"]}<br>
+            {img["filename"]}
+            <div style="position:absolute; top:50%; {sides[(num+1) % 2]}: 50%; width:10%; height:2px; background:#333;"></div>
+            <br>
             <small>{img.get("camera_model", "Unknown")}</small>
         </div>'''
         date_for_check = date_only
