@@ -6,7 +6,7 @@ def create_report(images_data, map_html, timeline_html, analysis):
 
     insights_html = ""
     for insight in analysis.get("insights", []):
-        insights_html += f"<li>{insight}</li>"
+        insights_html += f"<li>{insight}</li><br>"
 
     cameras_html = ""
     for cam in analysis.get("unique_cameras", []):
@@ -54,13 +54,16 @@ def create_report(images_data, map_html, timeline_html, analysis):
 
         <div class="section">
             <h2>תובנות מרכזיות</h2>
-            <ul>{insights_html}</ul>
+        <ul style="direction: ltr; text-align: left;">
+        {insights_html}
+        </ul>        
         </div>
 
         <div class="section">
             <h2>מפה</h2>
             {map_html}
         </div>
+                    
 
         <div class="section">
             <h2>ציר זמן</h2>
