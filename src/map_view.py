@@ -35,10 +35,10 @@ def create_map(images_data):
         tap=True
     )
     # מחלק צבעים לפי חברות
-    pin_color = ['blue', 'lightgreen', 'lightblue', 'orange', 'darkred',
-                 'lightred', 'beige', 'pink', 'darkgreen', 'cadetblue',
-                 'darkpurple', 'white', 'darkblue', 'purple', 'green',
-                 'gray', 'black', 'red']
+    pin_color = ['blue', 'lightgreen', 'lightblue',  'darkred',
+                 'lightred', 'beige', 'pink', 'gray','darkgreen', 'cadetblue',
+                 'darkpurple', 'orange','white', 'darkblue', 'purple', 'green'
+                 , 'black', 'red']
     make_color_dict = {}
     for img in gps_images:
         if img["camera_make"] in make_color_dict:
