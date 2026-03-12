@@ -51,7 +51,19 @@ def create_report(images_data, map_html, timeline_html, analysis):
                 </div>
             </div>
         </div>
-
+        <div class="section">
+            <h2>טווח הצילום</h2>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number" style="font-size: 20px;">{analysis.get('date_range', "-").get('start', "-")}</div>
+                    <div>תאריך ראשון</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" style="font-size: 20px;">{analysis.get('date_range', "-").get('end', "-")}</div>
+                    <div>תאריך אחרון</div>
+                </div>
+            </div>
+        </div>
         <div class="section">
             <h2>תובנות מרכזיות</h2>
         <ul style="direction: ltr; text-align: left;">
